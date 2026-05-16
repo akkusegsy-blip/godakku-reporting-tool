@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GOD AKKU REPORTING TOOL</title>
+
+<style>
+body {
+  background: black;
+  color: #00ffcc;
+  font-family: monospace;
+  text-align: center;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin: 10px;
+  background: black;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+}
+
+button:hover {
+  background: #00ffcc;
+  color: black;
+}
+
+.progress {
+  width: 80%;
+  background: #111;
+  margin: 20px auto;
+  border: 1px solid #00ffcc;
+}
+
+.bar {
+  width: 0%;
+  height: 20px;
+  background: #00ffcc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>𝗚𝗢𝗗 𝗔𝗞𝗞𝗨 𝗥𝗘𝗣𝗢𝗥𝗧𝗜𝗡𝗚 𝗧𝗢𝗢𝗟</h1>
+<p>⚡ Advanced Reporting System ⚡</p>
+
+<p>👨‍💻 Developer: 𝗔 𝗞 𝗞 𝗨 🏴⚕️🕸️</p>
+<p>📞 Contact: +1 (825) 569-6023</p>
+
+<input type="text" placeholder="Enter Target Username">
+
+<br>
+
+<select>
+<option>Select Reason</option>
+<option>Bullying or harassment</option>
+<option>Nudity or sexual content</option>
+<option>Violence or threats</option>
+<option>Hate speech</option>
+<option>Fake information</option>
+<option>Other</option>
+</select>
+
+<br>
+
+<label>Mass Report Count:</label><br>
+<input type="number" id="count" placeholder="Enter number (e.g. 100)">
+
+<br>
+
+<button onclick="startReport()">🚀 Start Mass Report</button>
+
+<div class="progress">
+  <div class="bar" id="bar"></div>
+</div>
+
+<p id="status"></p>
+
+</div>
+
+<script>
+function startReport() {
+  let count = document.getElementById("count").value;
+  let bar = document.getElementById("bar");
+  let status = document.getElementById("status");
+
+  if(count == "" || count <= 0){
+    alert("Enter valid number");
+    return;
+  }
+
+  let progress = 0;
+
+  let interval = setInterval(() => {
+    progress++;
+
+    bar.style.width = progress + "%";
+    status.innerText = "Processing Reports: " + progress + "%";
+
+    if(progress >= 100){
+      clearInterval(interval);
+      status.innerText = "✅ Reports Submitted Successfully!";
+    }
+  }, 50);
+}
+</script>
+
+</body>
+</html>
